@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
+import TabContext from "../context/TabContext";
 import { AuthContext } from "../context/AuthContext";
 
 const Navbar = ({ setCurrentPage }) => {
   const { isAuthenticated, logout } = useContext(AuthContext);
+  const { activeTab, setActiveTab } = useContext(TabContext);
+
+  console.log(activeTab);
 
   const handleLogout = () => {
     logout();
@@ -25,19 +29,33 @@ const Navbar = ({ setCurrentPage }) => {
           </li>
 
           <li className="cursor-pointer">
-            <a href="#" onClick={() => setCurrentPage("dashboard")}>
-              Home
+            <a href="#" onClick={() => setActiveTab("Dashboard")}>
+              Home{activeTab}
             </a>
           </li>
 
           {isAuthenticated ? (
-            <li className="flex gap-3 cursor-pointer ">
-              <a href="#" onClick={() => setCurrentPage("profile")}>
-                View Profile
-              </a>
-              <a href="#" onClick={handleLogout}>
-                Logout
-              </a>
+            <li className="relative group">
+              <div className="flex items-center gap-3 cursor-pointer">
+                <img src="https://via.placeholder.com/40" alt="user" className="rounded-full" />
+              </div>
+              <ul className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 right-0">
+                <li>
+                  <a href="#" onClick={() => setCurrentPage("profile")} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    Edit Personal Data
+                  </a>
+                </li>
+                <li>
+                  <span className="block px-4 py-2 text-gray-500 cursor-not-allowed">
+                    Change Password
+                  </span>
+                </li>
+                <li>
+                  <a href="#" onClick={handleLogout} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                    Logout
+                  </a>
+                </li>
+              </ul>
             </li>
           ) : (
             <li className="cursor-pointer">

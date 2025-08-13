@@ -20,8 +20,8 @@ function Courses() {
   ];
 
   return (
-    <div>
-      <h2>Courses</h2>
+    <div className="bg-white p-4 rounded-lg shadow-md border border-gray-200">
+      <h3 className="text-lg font-semibold mb-2">Courses</h3>
       <ul className="p-4 m-2">
         {courses.map((course) => (
           <li
