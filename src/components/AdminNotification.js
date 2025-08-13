@@ -1,23 +1,13 @@
-import React from "react";
+import React from 'react';
 
-function AdminNotification() {
-  const notification = [
-    { id: 1, message: "New user registration", date: "2023-10-01" },
-    { id: 2, message: "Course assignment due", date: "2023-10-05" },
-    { id: 3, message: "Profile update required", date: "2023-10-10" },
-  ];
+const AdminNotification = () => {
   return (
-    <div>
-      <h2>Admin Notifications</h2>
-      <ul>
-        {notification.map((note) => (
-          <li key={note.id}>
-            {note.message} - {note.date}
-          </li>
-        ))}
-      </ul>
+    <div className="bg-white p-4 rounded-lg shadow-md border border-gray-200">
+      <h3 className="text-lg font-semibold mb-2">Admin Notifications</h3>
+      <p className="text-gray-600">No new notifications at the moment.</p>
+      {/* Add more notification content here */}
     </div>
   );
-}
+};
 
 export default AdminNotification;

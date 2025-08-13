@@ -25,20 +25,23 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className=" bg-red-400 border border-solid border-amber-950 h-75 w-75">
-      <ul className="flex flex-col items-start m-2 ">
-        {tabs.map((t, index) => (
-          <li
-            key={index}
-            onClick={() => {
-              setActiveTab(t.name);
-            }}
-            className="cursor-pointer hover:bg-amber-300 w-full text-2xl font-bold p-2 border-b"
-          >
-            {t.name}
-          </li>
-        ))}
-      </ul>
+    <div className="bg-gray-800 text-white w-64 space-y-6 py-7 px-2 min-h-screen">
+      <nav>
+        <ul className="mt-4">
+          {tabs.map((t, index) => (
+            <li
+              key={index}
+              onClick={() => {
+                setActiveTab(t.name);
+              }}
+              className={`cursor-pointer p-3 rounded-lg text-lg font-medium transition-colors duration-200 ease-in-out
+                ${activeTab === t.name ? 'bg-amber-500 text-white' : 'hover:bg-gray-700'}`}
+            >
+              {t.name}
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };
