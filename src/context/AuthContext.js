@@ -22,8 +22,13 @@ export const AuthProvider = ({ children }) => {
     console.log("AuthContext: User logged out");
   };
 
+  const updateUser = (newUserData) => {
+    setUser(newUserData);
+    console.log("AuthContext: User data updated", newUserData);
+  };
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, login, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
