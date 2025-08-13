@@ -29,8 +29,8 @@ const Navbar = ({ setCurrentPage }) => {
           </li>
 
           <li className="cursor-pointer">
-            <a href="#" onClick={() => setActiveTab("Dashboard")}>
-              Home{activeTab}
+            <a href="#" onClick={() => setCurrentPage("dashboard")}>
+              Home
             </a>
           </li>
 
@@ -39,19 +39,19 @@ const Navbar = ({ setCurrentPage }) => {
               <div className="flex items-center gap-3 cursor-pointer">
                 <img src="https://via.placeholder.com/40" alt="user" className="rounded-full" />
               </div>
-              <ul className="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2 py-2 w-48 right-0">
+              <ul className="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2 w-64 right-0">
                 <li>
-                  <a href="#" onClick={() => setCurrentPage("profile")} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  <a href="#" onClick={() => setCurrentPage("profile")} className="block px-6 py-3 text-gray-800 hover:bg-gray-200">
                     Edit Personal Data
                   </a>
                 </li>
                 <li>
-                  <span className="block px-4 py-2 text-gray-500 cursor-not-allowed">
+                  <span className="block px-6 py-3 text-gray-500 cursor-not-allowed">
                     Change Password
                   </span>
                 </li>
                 <li>
-                  <a href="#" onClick={handleLogout} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  <a href="#" onClick={handleLogout} className="block px-6 py-3 text-gray-800 hover:bg-gray-200">
                     Logout
                   </a>
                 </li>
